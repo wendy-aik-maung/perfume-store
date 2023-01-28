@@ -32,7 +32,7 @@ const ProductDetails = () => {
 	if (error) return <main>Ugh.. {error.message}</main>;
 	const product = data.products.data[0].attributes;
 	const { title, description, image, slug } = product;
-	const { url, width, height } = image.data.attributes.formats.medium;
+	const { url, width, height } = image.data.attributes.formats.small;
 
 	const handleAddToCart = () => {
 		handleOnAdd(product, productQty);
@@ -42,14 +42,21 @@ const ProductDetails = () => {
 	return (
 		<ProductDetailsStyled className="container mx-auto">
 			{/* for Next Image component */}
-			<Image
+			{/* <Image
 				className="w-1/3 rounded hover:shadow"
 				src={url}
 				alt={title}
 				width={width}
 				height={height}
-			/>
+			/> */}
 
+			<div>
+				<img
+					className="w-1/3 rounded hover:shadow h-36"
+					src={url}
+					alt={title}
+				/>
+			</div>
 			<ProductInfo>
 				<h2>{title}</h2>
 				<p>{description}</p>

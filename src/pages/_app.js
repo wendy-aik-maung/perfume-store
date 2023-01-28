@@ -1,5 +1,4 @@
-import "@/styles/globals.css";
-
+import "../styles/globals.css";
 import { createClient, Provider } from "urql";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { Toaster } from "react-hot-toast";

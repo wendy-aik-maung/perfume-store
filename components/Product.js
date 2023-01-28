@@ -1,3 +1,4 @@
+import Styled from "daisyui/dist/styled";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,18 +9,25 @@ const Product = ({ product }) => {
 	return (
 		<ProductStyled className="transition rounded hover:shadow-lg">
 			<Link href={`/products/${slug}`}>
-				<div>
+				<Styledimg>
+					{/* <img
+						className="transition duration-300 hover:scale-105"
+						src={image?.data?.attributes?.formats?.small?.url}
+						alt={title}
+					/> */}
 					<Image
 						className="transition duration-300 hover:scale-105"
 						width="240"
 						height="240"
-						src={image.data.attributes.formats.small.url}
+						src={image?.data?.attributes?.formats?.small?.url}
 						alt={title}
 					/>
-				</div>
+				</Styledimg>
 			</Link>
-			<h2>{title}</h2>
-			<h3>{price}</h3>
+			<div>
+				<h2>{title}</h2>
+				<h3>{price}</h3>
+			</div>
 		</ProductStyled>
 	);
 };
@@ -37,8 +45,10 @@ const ProductStyled = styled.div`
 	img {
 		width: 100%;
 		object-fit: cover;
+		max-height: 200px;
 	}
 	h2 {
 		padding: 0.5rem 0;
 	}
 `;
+const Styledimg = styled.figure``;

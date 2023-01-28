@@ -43,11 +43,11 @@ export default function Home() {
 						))
 					) : null}
 				</ProductGallery>
-				<div className="flex justify-center">
+				<Button>
 					<Link className="mt-5 btn btn-primary btn-sm" href="/products">
 						See more
 					</Link>
-				</div>
+				</Button>
 			</section>
 			<section className="mt-5">
 				<h1 className="mb-3 font-semibold text-center">Latest Products</h1>
@@ -60,11 +60,11 @@ export default function Home() {
 						))
 					) : null}
 				</ProductGallery>
-				<div className="flex justify-center">
+				<Button>
 					<Link className="mt-5 btn btn-primary btn-sm" href="/products">
 						See more
 					</Link>
-				</div>
+				</Button>
 			</section>
 		</main>
 	);
@@ -79,4 +79,8 @@ const ProductGallery = styled.div`
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 2rem;
+`;
+const Button = styled.div`
+	display: flex;
+	justify-content: center;
 `;
