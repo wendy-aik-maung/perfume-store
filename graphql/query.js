@@ -59,3 +59,16 @@ query {
   }
 }
 `;
+
+export const GET_FEEDBACKS = `
+query {
+  feedbacks{
+    data{
+      id
+   attributes{
+    review
+  }  
+    }
+  }
+}
+`;

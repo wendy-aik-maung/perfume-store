@@ -1,9 +1,12 @@
+import { css } from "@emotion/css";
 import Head from "next/head";
 import styled from "styled-components";
 import { useQuery } from "urql";
 import Product from "components/Product";
 import { GET_PRODUCTS, GET_CATEGORIES } from "graphql/query";
 import { useState } from "react";
+import { AiOutlineRight } from "react-icons/ai";
+import { Container } from "postcss";
 
 const Index = () => {
 	const [selectedCategory, setSelectedCategory] = useState(null);
@@ -37,29 +40,36 @@ const Index = () => {
 	}
 
 	return (
-		<main className="container flex mx-auto">
+		<main className="container mx-auto">
 			<Head>
-				<title>All Products by Category</title>
+				<title>All Collection by Category</title>
 			</Head>
-			<aside className="w-1/5">
-				<ul>
+			<div>
+				<Category>
 					{!categoryFetching && !categoryError ? (
-						categoryData.categories.data.map((item) => (
-							<li
-								className="p-2 text-sm text-center border hover:cursor-pointer"
+						categoryData.categories.data.map((item, index) => (
+							<Tab
+								className="tabs tabs-boxed btn-wide p-5 border hover:cursor-pointer bg-none mx-auto rounded-2xl btn-outline align-middle shadow-xl"
 								onClick={() => handleCategorySelect(item.attributes.slug)}
 								key={item.attributes.slug}>
-								{item.attributes.name}
-							</li>
+								{item.attributes.name} Fragrances{" "}
+								{index == 0 ? (
+									<AiOutlineRight size={21} style={{ marginLeft: "3.3rem" }} />
+								) : (
+									<AiOutlineRight size={21} style={{ marginLeft: "4.3rem" }} />
+								)}
+							</Tab>
 						))
 					) : (
 						<p>Loading...</p>
 					)}
-				</ul>
-			</aside>
-			<div className="w-full px-4">
-				<section className="mt-5">
-					<h1 className="mb-3 font-semibold text-center">Products</h1>
+				</Category>
+			</div>
+			<CategoryInfo>
+				<section className="mt-3">
+					<h1 className="mb-5 font-semibold text-2xl text-center">
+						Products by Category
+					</h1>
 					<ProductGallery>
 						{!fetching && !error ? (
 							data.products.data.map((product) => (
@@ -70,13 +80,33 @@ const Index = () => {
 						)}
 					</ProductGallery>
 				</section>
-			</div>
+			</CategoryInfo>
 		</main>
 	);
 };
 
 export default Index;
 
+const Category = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: around;
+	align-items: center;
+	margin: auto;
+	margin-bottom: 2rem;
+`;
+const CategoryInfo = styled.div`
+	margin-top: 3rem;
+`;
+
+const Tab = styled.div`
+background:
+color: 
+	&:hover {
+		color: #64748b;
+		background: none;
+	}
+`;
 const ProductGallery = styled.div`
 	display: flex;
 	justify-content: center;

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HiShoppingBag } from "react-icons/hi2";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,14 +12,48 @@ import UserMenuItem from "./UserMenuItem";
 
 const Navbar = () => {
 	const { showCart, setShowCart, totalQuantity } = useStoreContext();
+	const [query, setQuery] = useState({
+		keywords: "",
+	});
+	const handleSearch = (e) => {
+		setQuery({ keywords: e.target.value });
+	};
 	return (
 		<NavStyled className="container mx-auto">
-			<Link href="/">Y.E.C Store</Link>
+			<Link href="/" className="ml-10 text-4xl font-bold  font-sans">
+				Rememberance
+			</Link>
+
+			{/* <div className="input-group">
+				<input
+					type="text"
+					placeholder="Search…"
+					// value={searchBook}
+					onChange={handleSearch}
+					className="input input-bordered"
+				/>
+				<button className="btn btn-square">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						className="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path
+							strokeLinecap="round" 
+							strokeLinejoin="round"
+							strokeWidth="2"
+							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+						/>
+					</svg>
+				</button>
+			</div> */}
+
 			<NavItems>
 				<UserMenuItem />
 				<li
 					onClick={() => setShowCart(true)}
-					className="p-2 text-red-700 bg-red-100 rounded-lg shadow hover:shadow-md hover:bg-red-200">
+					className="p-2 text-red-700 bg-red-100 rounded-lg shadow hover:shadow-md hover:bg-red-200 mr-10">
 					{totalQuantity > 0 ? (
 						<motion.span initial={{ scale: 0 }} animate={{ scale: 1 }}>
 							{totalQuantity}
@@ -37,10 +71,11 @@ const Navbar = () => {
 export default Navbar;
 
 const NavStyled = styled.nav`
-	min-height: 15vh;
+	min-height: 10vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin: auto;
 `;
 
 const NavItems = styled.ul`
@@ -80,3 +115,10 @@ const NavItems = styled.ul`
 		pointer-events: none;
 	}
 `;
+// const SearchBar = styled.div`
+// 	display: flex;
+// 	width: 75px;
+// `;
+// const SearchInput = styled.input`
+// 	// padding: 0.5em 5rem;
+// `;

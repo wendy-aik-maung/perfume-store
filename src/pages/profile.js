@@ -9,8 +9,9 @@ const Profile = ({ user }) => {
 
 	return (
 		<main className="w-1/2 p-4 bg-white border rounded">
+			<h2 className="text-2xl text-center">Profile</h2>
 			{user ? (
-				<div className="flex flex-col items-center content-center">
+				<div className="flex flex-col items-center content-center ">
 					<h2>{user.name}</h2>
 					<p>{user.email}</p>
 					<button

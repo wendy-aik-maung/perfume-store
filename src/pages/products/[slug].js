@@ -42,21 +42,21 @@ const ProductDetails = () => {
 	return (
 		<ProductDetailsStyled className="container mx-auto">
 			{/* for Next Image component */}
-			{/* <Image
+			<Image
 				className="w-1/3 rounded hover:shadow"
 				src={url}
 				alt={title}
 				width={width}
 				height={height}
-			/> */}
+			/>
 
-			<div>
+			{/* <div>
 				<img
-					className="w-1/3 rounded hover:shadow h-36"
+					className="w-1/3 rounded hover:shadow h-96"
 					src={url}
 					alt={title}
 				/>
-			</div>
+			</div> */}
 			<ProductInfo>
 				<h2>{title}</h2>
 				<p>{description}</p>

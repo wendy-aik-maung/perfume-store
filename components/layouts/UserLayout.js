@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Footer from "components/Footer";
 import Navbar from "components/Navbar";
+import HeroSedtion from "components/HeroSection";
 
 const UserLayout = ({ children }) => {
 	return (

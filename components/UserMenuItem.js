@@ -28,7 +28,7 @@ const UserMenuItem = () => {
 				width="32"
 				height="32"
 			/>
-			<h3>{user.name}</h3>
+			<h3 className="text-xl text-bold">{user.name}</h3>
 		</div>
 	);
 };

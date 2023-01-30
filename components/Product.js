@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Product = ({ product }) => {
 	const { title, price, image, slug, width, height } = product.attributes;
 	return (
-		<ProductStyled className="transition rounded hover:shadow-lg">
+		<ProductStyled className="transition rounded-3xl rounded-t-3xl ring-offset-4 shadow-xl hover:shadow-lg">
 			<Link href={`/products/${slug}`}>
 				<Styledimg>
 					{/* <img
@@ -24,10 +24,10 @@ const Product = ({ product }) => {
 					/>
 				</Styledimg>
 			</Link>
-			<div>
+			<Label className="text-center">
 				<h2>{title}</h2>
-				<h3>{price}</h3>
-			</div>
+				<h3>${price}.0</h3>
+			</Label>
 		</ProductStyled>
 	);
 };
@@ -35,13 +35,12 @@ const Product = ({ product }) => {
 export default Product;
 const ProductStyled = styled.div`
 	width: 18rem;
-	background-color: white;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding: 1.5rem;
 	cursor: pointer;
-
+	background: white;
 	img {
 		width: 100%;
 		object-fit: cover;
@@ -52,3 +51,12 @@ const ProductStyled = styled.div`
 	}
 `;
 const Styledimg = styled.figure``;
+const Label = styled.div`
+	h2 {
+		font-weight: bold;
+	}
+	h3 {
+		color: red;
+		font-weight: bold;
+	}
+`;
