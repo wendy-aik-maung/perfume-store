@@ -1,10 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
-import styled from "styled-components";
-import story from "public/story.jpg";
-import us from "public/ud.jpg";
-import about from "public/about.jpg";
+import story from "public/ud.jpg";
+
 const AboutUs = () => {
 	return (
 		<main className="container mx-auto">
@@ -12,7 +11,7 @@ const AboutUs = () => {
 				<Story>
 					<StyledSection className="container mx-auto">
 						<img
-							src={us.src}
+							src={story.src}
 							alt="logo"
 							className="w-full object-cover bg-center relative"
 						/>
