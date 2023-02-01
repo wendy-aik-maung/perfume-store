@@ -1,68 +1,63 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Image from "next/image";
 import { useQuery } from "urql";
 import { GET_PRODUCTS } from "graphql/query";
 import { GET_FEEDBACKS } from "graphql/query";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import Product from "components/Product";
 import Link from "next/link";
 import styled from "styled-components";
 import HeroSedtion from "components/HeroSection";
 import Testimonial from "components/Testimonial";
+import Product from "components/Product";
 
-function SampleNextArrow(props) {
-	const { className, onClick } = props;
-	return (
-		<div className={className} onClick={onClick}>
-			<FiChevronLeft className="  text-3xl" />
-		</div>
-	);
-}
+// function SampleNextArrow(props) {
+// 	const { className, onClick } = props;
+// 	return (
+// 		<div className={className} onClick={onClick}>
+// 			<FiChevronLeft className="  text-3xl" />
+// 		</div>
+// 	);
+// }
 
-function SamplePrevArrow(props) {
-	const { className, onClick } = props;
+// function SamplePrevArrow(props) {
+// 	const { className, onClick } = props;
 
-	return (
-		<div className={className} onClick={onClick}>
-			<FiChevronRight className="  text-3xl" />
-		</div>
-	);
-}
+// 	return (
+// 		<div className={className} onClick={onClick}>
+// 			<FiChevronRight className="  text-3xl" />
+// 		</div>
+// 	);
+// }
 
 export default function Home() {
-	const settings = {
-		dots: true,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 3000,
-		nextArrow: <SampleNextArrow />,
-		prevArrow: <SamplePrevArrow />,
-		// initialSlide: 0,
-		responsive: [
-			{
-				breakpoint: 720,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 1,
-					// initialSlide: 2,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
-				},
-			},
-		],
-	};
+	//For react-slick-slider
+	// const settings = {
+	// 	dots: true,
+	// 	infinite: true,
+	// 	speed: 500,
+	// 	slidesToShow: 1,
+	// 	slidesToScroll: 1,
+	// 	autoplay: true,
+	// 	autoplaySpeed: 3000,
+	// 	nextArrow: <SampleNextArrow />,
+	// 	prevArrow: <SamplePrevArrow />,
+	// 	// initialSlide: 0,
+	// 	responsive: [
+	// 		{
+	// 			breakpoint: 720,
+	// 			settings: {
+	// 				slidesToShow: 2,
+	// 				slidesToScroll: 1,
+	// 				// initialSlide: 2,
+	// 			},
+	// 		},
+	// 		{
+	// 			breakpoint: 480,
+	// 			settings: {
+	// 				slidesToShow: 1,
+	// 				slidesToScroll: 1,
+	// 			},
+	// 		},
+	// 	],
+	// };
 
 	const [results] = useQuery({
 		query: GET_PRODUCTS,
