@@ -5,60 +5,10 @@ import { GET_FEEDBACKS } from "graphql/query";
 import Link from "next/link";
 import styled from "styled-components";
 import HeroSedtion from "components/HeroSection";
-import Testimonial from "components/Testimonial";
 import Product from "components/Product";
-
-// function SampleNextArrow(props) {
-// 	const { className, onClick } = props;
-// 	return (
-// 		<div className={className} onClick={onClick}>
-// 			<FiChevronLeft className="  text-3xl" />
-// 		</div>
-// 	);
-// }
-
-// function SamplePrevArrow(props) {
-// 	const { className, onClick } = props;
-
-// 	return (
-// 		<div className={className} onClick={onClick}>
-// 			<FiChevronRight className="  text-3xl" />
-// 		</div>
-// 	);
-// }
+import Test from "components/Testimonials";
 
 export default function Home() {
-	//For react-slick-slider
-	// const settings = {
-	// 	dots: true,
-	// 	infinite: true,
-	// 	speed: 500,
-	// 	slidesToShow: 1,
-	// 	slidesToScroll: 1,
-	// 	autoplay: true,
-	// 	autoplaySpeed: 3000,
-	// 	nextArrow: <SampleNextArrow />,
-	// 	prevArrow: <SamplePrevArrow />,
-	// 	// initialSlide: 0,
-	// 	responsive: [
-	// 		{
-	// 			breakpoint: 720,
-	// 			settings: {
-	// 				slidesToShow: 2,
-	// 				slidesToScroll: 1,
-	// 				// initialSlide: 2,
-	// 			},
-	// 		},
-	// 		{
-	// 			breakpoint: 480,
-	// 			settings: {
-	// 				slidesToShow: 1,
-	// 				slidesToScroll: 1,
-	// 			},
-	// 		},
-	// 	],
-	// };
-
 	const [results] = useQuery({
 		query: GET_PRODUCTS,
 		variables: {
@@ -95,6 +45,7 @@ export default function Home() {
 	return (
 		<>
 			<HeroSedtion />
+
 			<main>
 				<section className="mt-5">
 					<div className="flex justify-between">
@@ -119,9 +70,7 @@ export default function Home() {
 				</section>
 				<section className="mt-8">
 					<div className="flex justify-between">
-						<h1 className="mb-2 text-xl font-bold text-center">
-							Latest Collection
-						</h1>
+						<h1 className="mb-2 text-xl font-bold text-center">New Arrivals</h1>
 						<div>
 							<Link className="mb-5 btn  btn-neutral" href="/products">
 								See more
@@ -139,19 +88,10 @@ export default function Home() {
 					</ProductGallery>
 				</section>
 			</main>
-			<Testimonial />
-			{/* <div className=" mx-auto ">
-				<h2>Our Testimonial</h2>
-				<Slider {...settings}>
-					{comment?.map((feedback, feedbackIndex) => {
-						return (
-							<div key={feedback.id}>
-								<p className="title">{feedback.attributes.review}</p>
-							</div>
-						);
-					})}
-				</Slider>
-			</div> */}
+
+			<section className="container mx-auto border rounded-3xl rounded-t-3xl ring-offset-4 shadow-xl hover:shadow-lg">
+				<Test />
+			</section>
 		</>
 	);
 }
